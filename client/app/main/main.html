@@ -14,7 +14,7 @@
       <form class="form-inline searchForm" role="form">
         <div class="form-group">
           <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search">
+            <input class="form-control" type="text" placeholder="Search" ng-model="query">
 
             <div class="input-group-addon"><a href="" ng-click="search()"><i class="glyphicon glyphicon-search"></i></a>
             </div>
@@ -24,7 +24,7 @@
       </form>
       <div class="searchResults">
         <ul class="list-group">
-          <li  class="list-group-item" ng-repeat="res in results">{{$index}}: {{res.name}}</li>
+          <li  class="list-group-item" ng-repeat="res in results">{{$index}}: {{res.snippet.title}}</li>
         </ul>
       </div>
     </div>
