@@ -16,11 +16,12 @@ require('./config/express')(app);
 require('./routes')(app);
 require('./socket')(server);
 
+var logger = require('./logger');
 
 
 // Start server
 server.listen(config.port, config.ip, function () {
-  console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+  logger.info('Express server listening on %d, in %s mode', config.port, app.get('env'));
 });
 
 

@@ -3,6 +3,7 @@
  */
 'use strict';
 
+var logger = require('./logger');
 
 module.exports = function(server) {
 
@@ -11,7 +12,7 @@ module.exports = function(server) {
 
   io.on('connection', function (socket) {
 
-    console.log('Connected socket: '+socket.id);
+    logger.log('debug', 'Connected socket: %s', socket.id);
 
   });
 
