@@ -1,5 +1,7 @@
 'use strict';
 
+var socket = io.connect('http://localhost');
+
 angular.module('serverApp', [
   'ngCookies',
   'ngResource',
