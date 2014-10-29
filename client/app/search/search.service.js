@@ -3,10 +3,7 @@
 angular.module('serverApp')
   .service('search', ['youtubeApi', function (youtubeApi) {
     var gapi = youtubeApi.getApiClient();
-    gapi.client.setApiKey('AIzaSyCKaSsncd1Rj8uCXrSv5-6fL9HcYZxIShQ');
-    gapi.client.load('youtube', 'v3', function() {
-      console.log('API loaded');
-    });
+
     return {
       'do': function(query, cb){
         //alert(query);
