@@ -14,6 +14,8 @@ module.exports = function(server) {
 
     logger.log('debug', 'Connected socket: %s', socket.id);
 
+    require('./api/remote/remote.controller')(io, socket);
+
   });
 
 };

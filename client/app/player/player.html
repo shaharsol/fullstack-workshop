@@ -33,24 +33,69 @@
         function onPlayerStateChange(event) {
         }
         function stopVideo() {
-          if(YT.PlayerState.PLAYING)
+          if(player.getPlayerState() === YT.PlayerState.PLAYING )
             player.stopVideo();
         }
 
         function pauseVideo() {
-          if(YT.PlayerState.PLAYING)
+          if(player.getPlayerState() !== YT.PlayerState.PAUSED)
             player.pauseVideo();
         }
 
-        function play(id) {
-          player.loadVideoById(id);
+        var currentId;
+        function playVideo(id) {
+          if(id === currentId){
+            player.playVideo();
+          }else{
+            player.loadVideoById(id);
+            currentId = id;
+          }
+        }
 
+        function mute(){
+          player.mute();
+        }
+
+        function volume(up){
+          var vol = player.getVolume();
+          if(up){
+            if(player.isMuted()){
+              player.unMute();
+            }else
+            {
+              player.setVolume(vol+5);
+            }
+          }else{
+            player.setVolume(vol-5);
+          }
         }
 
         //register to socket events
         socket.on('play', function(data){
           console.log(data);
+          playVideo(data.videoId);
+        });
+        socket.on('pause', function(data){
+          console.log(data);
+          pauseVideo();
         })
+        socket.on('stop', function(data){
+          console.log(data);
+          stopVideo();
+        })
+        socket.on('volumeDown', function(data){
+          console.log(data);
+          volume(false);
+        })
+        socket.on('volumeUp', function(data){
+          console.log(data);
+          volume(true);
+        })
+        socket.on('mute', function(data){
+          console.log(data);
+          mute();
+        })
+
 
       </script>
     </div>

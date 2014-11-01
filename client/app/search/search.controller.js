@@ -15,22 +15,25 @@ angular.module('serverApp')
       });
     };
 
-    var isPlaying = false;
-    $scope.playBtn = function(){
-      return (isPlaying)?'pause':'play';
+    var isPlaying = {};
+    $scope.playBtn = function(id){
+      return (isPlaying[id])?'pause':'play';
     };
 
     $scope.play = function (id) {
       console.log('play ' + id);
-      if(isPlaying)
+      if(isPlaying[id.videoId])
       {
         video.sendCommand('pause', id);
+        delete isPlaying[id.videoId];
       }
       else
       {
         video.sendCommand('play', id);
+        isPlaying = {};
+        isPlaying[id.videoId] = true;
       }
-      isPlaying = !isPlaying;
+
     };
 
     $scope.mute = function (id) {

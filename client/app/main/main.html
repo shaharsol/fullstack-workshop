@@ -33,7 +33,7 @@
                 <p>{{res.snippet.description}}</p>
                 <p>
                   <div class="container">
-                    <button class="btn" ng-click="play(res.id)"><i class="glyphicon glyphicon-{{playBtn()}}"></i></button>
+                    <button class="btn" ng-click="play(res.id)"><i class="glyphicon glyphicon-{{playBtn(res.id.videoId)}}"></i></button>
                     <button class="btn" ng-click="mute(res.id)"><i class="glyphicon glyphicon-volume-off"></i></button>
                     <button class="btn" ng-click="volumeDown(res.id)"><i class="glyphicon glyphicon-volume-down"></i></button>
                     <button class="btn" ng-click="volumeUp(res.id)"><i class="glyphicon glyphicon-volume-up"></i></button>
