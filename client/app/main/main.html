@@ -28,14 +28,19 @@
               <div class="media-object pull-left">
                 <img src="{{res.snippet.thumbnails.default.url}}">
               </div>
-
               <div class="media-body">
                 <h4 class="media-header">{{res.snippet.title}}</h4>
                 <p>{{res.snippet.description}}</p>
-                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <p>
+                  <div class="container">
+                    <button class="btn" ng-click="play()"><i class="glyphicon glyphicon-play"></i></button>
+                    <button class="btn" ng-click="mute()"><i class="glyphicon glyphicon-volume-off"></i></button>
+                    <button class="btn" ng-click="volumeDown()"><i class="glyphicon glyphicon-volume-down"></i></button>
+                    <button class="btn" ng-click="volumeUp()"><i class="glyphicon glyphicon-volume-up"></i></button>
+
+                  </div>
+                </p>
               </div>
-
-
           </li>
         </ul>
 

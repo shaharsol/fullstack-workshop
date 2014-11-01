@@ -14,4 +14,20 @@ angular.module('serverApp')
         $scope.$digest();
       });
     };
+
+    $scope.play = function(){
+      alert('play');
+    };
+
+    $scope.mute = function(){
+      alert('mute');
+    };
+
+    $scope.volumeDown = function(){
+      alert('volumeDown');
+    };
+
+    $scope.volumeUp = function(){
+      alert('volumeUp');
+    };
   }]);
