@@ -3,9 +3,10 @@
  */
 'use strict';
 
-var logger = require('./logger');
+var logger = require('./logger'),
+  remoteController = require('./api/remote/remote.controller');
 
-module.exports = function(server) {
+module.exports = function (server) {
 
   //Socket.io
   var io = require('socket.io')(server);
@@ -13,6 +14,8 @@ module.exports = function(server) {
   io.on('connection', function (socket) {
 
     logger.log('debug', 'Connected socket: %s', socket.id);
+
+    remoteController(socket);
 
   });
 
