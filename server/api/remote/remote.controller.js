@@ -8,9 +8,9 @@ module.exports = function (socket) {
   socket.on('play', api.play);
   socket.on('pause', api.pause);
   socket.on('stop', api.stop);
-  socket.on('volume', api.volume);
+  socket.on('volume', api.volumeUp);
+  socket.on('volume', api.volumeDown);
   socket.on('mute', api.mute);
-
 
 };
 
@@ -24,8 +24,11 @@ var api = {
   stop: function (options) {
     logger.log('debug', 'stop', options);
   },
-  volume: function (options) {
-    logger.log('debug', 'volume', options);
+  volumeDown: function (options) {
+    logger.log('debug', 'volumeDown', options);
+  },
+  volumeUp: function (options) {
+    logger.log('debug', 'volumeUp', options);
   },
   mute: function (options) {
     logger.log('debug', 'mute', options);

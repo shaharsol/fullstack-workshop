@@ -33,10 +33,10 @@
                 <p>{{res.snippet.description}}</p>
                 <p>
                   <div class="container">
-                    <button class="btn" ng-click="play()"><i class="glyphicon glyphicon-play"></i></button>
-                    <button class="btn" ng-click="mute()"><i class="glyphicon glyphicon-volume-off"></i></button>
-                    <button class="btn" ng-click="volumeDown()"><i class="glyphicon glyphicon-volume-down"></i></button>
-                    <button class="btn" ng-click="volumeUp()"><i class="glyphicon glyphicon-volume-up"></i></button>
+                    <button class="btn" ng-click="play(res.id)"><i class="glyphicon glyphicon-{{playBtn()}}"></i></button>
+                    <button class="btn" ng-click="mute(res.id)"><i class="glyphicon glyphicon-volume-off"></i></button>
+                    <button class="btn" ng-click="volumeDown(res.id)"><i class="glyphicon glyphicon-volume-down"></i></button>
+                    <button class="btn" ng-click="volumeUp(res.id)"><i class="glyphicon glyphicon-volume-up"></i></button>
 
                   </div>
                 </p>
